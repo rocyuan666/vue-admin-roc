@@ -24,7 +24,7 @@ function handleScroll(e) {
   const $scrollWrapper = scrollWrapper.value
   $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
 }
-const emits = defineEmits()
+const emits = defineEmits(['scroll'])
 const emitScroll = () => {
   emits('scroll')
 }
@@ -56,7 +56,7 @@ function moveToTarget(currentTag) {
     let prevTag = null
     let nextTag = null
     for (const k in tagListDom) {
-      if (k !== 'length' && Object.hasOwnProperty.call(tagListDom, k)) {
+      if (k !== 'length' && Object.prototype.hasOwnProperty.call(tagListDom, k)) {
         if (tagListDom[k].dataset.path === visitedViews.value[currentIndex - 1].path) {
           prevTag = tagListDom[k]
         }
