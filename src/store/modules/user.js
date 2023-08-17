@@ -6,7 +6,7 @@ const useUserStore = defineStore('user', {
   state: () => ({
     token: getToken(),
     name: '',
-    avatar: '',
+    avatar: defAva,
     roles: [],
     permissions: [],
   }),
