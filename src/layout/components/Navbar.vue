@@ -86,12 +86,6 @@ function logout() {
     type: 'warning',
   })
     .then(() => {
-      // 调试不进行验证
-      const isDebug = true
-      if (isDebug) {
-        router.push({ path: '/login' })
-        return
-      }
       userStore.logOut().then(() => {
         location.href = '/index'
       })

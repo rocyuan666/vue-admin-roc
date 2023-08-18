@@ -60,7 +60,6 @@ import Cookies from 'js-cookie'
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 import useUserStore from '@/store/modules/user'
 
-getMock()
 const userStore = useUserStore()
 const route = useRoute()
 const router = useRouter()
@@ -97,12 +96,6 @@ watch(
 )
 
 function handleLogin() {
-  // 调试不进行验证
-  const isDebug = true
-  if (isDebug) {
-    router.push({ path: redirect.value || '/' })
-    return
-  }
   proxy.$refs.loginRef.validate((valid) => {
     if (valid) {
       loading.value = true
@@ -155,7 +148,7 @@ function getCookie() {
   }
 }
 
-// getCode()
+getCode()
 getCookie()
 </script>
 

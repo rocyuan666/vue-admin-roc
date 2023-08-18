@@ -9,7 +9,7 @@ export function login(username, password, code, uuid) {
     uuid,
   }
   return request({
-    url: '/login',
+    url: '/mock/api/login',
     headers: {
       isToken: false,
     },
@@ -33,7 +33,7 @@ export function register(data) {
 // 获取用户详细信息
 export function getInfo() {
   return request({
-    url: '/getInfo',
+    url: '/mock/api/getInfo',
     method: 'get',
   })
 }
@@ -41,7 +41,7 @@ export function getInfo() {
 // 退出方法
 export function logout() {
   return request({
-    url: '/logout',
+    url: '/mock/api/logout',
     method: 'post',
   })
 }
@@ -49,18 +49,11 @@ export function logout() {
 // 获取验证码
 export function getCodeImg() {
   return request({
-    url: '/captchaImage',
+    url: '/mock/api/captchaImage',
     headers: {
       isToken: false,
     },
     method: 'get',
     timeout: 20000,
-  })
-}
-
-// mock测试
-export function getMock() {
-  return request({
-    url: '/mock/api/getUsers',
   })
 }

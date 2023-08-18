@@ -1,3 +1,4 @@
-import { menu } from './menu'
+import { getUsers } from './menu'
+import { login, captchaImage, getInfo, logout } from './login'
 
-export default [menu]
+export default [getUsers, login, captchaImage, getInfo, logout]
