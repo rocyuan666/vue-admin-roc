@@ -57,3 +57,10 @@ export function getCodeImg() {
     timeout: 20000,
   })
 }
+
+// mock测试
+export function getMock() {
+  return request({
+    url: '/mock/api/getUsers',
+  })
+}

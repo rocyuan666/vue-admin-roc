@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url'
 
 export default function createSvgIcon(isBuild) {
   const iconDirs = path.resolve(fileURLToPath(new URL('./', import.meta.url)), '../../', 'src/assets/icons/svg')
-  console.log(iconDirs)
   return createSvgIconsPlugin({
     iconDirs: [iconDirs],
     symbolId: 'icon-[dir]-[name]',

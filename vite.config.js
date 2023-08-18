@@ -11,8 +11,9 @@ import createVitePlugins from './vite/plugins'
 
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, fileURLToPath(new URL('./', import.meta.url)))
-  const { VITE_APP_ENV } = env
-  return {
+  const { VITE_APP_ENV, VITE_APP_PROXY, VITE_APP_BASE_API } = env
+
+  const viteConfig = {
     base: VITE_APP_ENV === 'production' ? './' : './',
     resolve: {
       alias: {
@@ -37,7 +38,7 @@ export default defineConfig(({ mode, command }) => {
       open: true,
       proxy: {
         '/api': {
-          target: 'http://rocyuan.top:8080',
+          target: VITE_APP_BASE_API,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
@@ -61,4 +62,12 @@ export default defineConfig(({ mode, command }) => {
     },
     plugins: createVitePlugins(env, command === 'build'),
   }
+
+  if (mode == 'development') {
+    if (VITE_APP_PROXY == 'false') {
+      delete viteConfig.server.proxy
+    }
+  }
+
+  return viteConfig
 })
