@@ -6,20 +6,20 @@
  */
 
 import { defineConfig, loadEnv } from 'vite'
-import path from 'path'
+import { fileURLToPath, URL } from 'node:url'
 import createVitePlugins from './vite/plugins'
 
 export default defineConfig(({ mode, command }) => {
-  const env = loadEnv(mode, process.cwd())
+  const env = loadEnv(mode, fileURLToPath(new URL('./', import.meta.url)))
   const { VITE_APP_ENV } = env
   return {
     base: VITE_APP_ENV === 'production' ? './' : './',
     resolve: {
       alias: {
         // 设置路径
-        '~': path.resolve(__dirname, './'),
+        '~': fileURLToPath(new URL('./', import.meta.url)),
         // 设置别名
-        '@': path.resolve(__dirname, './src'),
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
