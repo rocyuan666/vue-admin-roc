@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
-
 import Cookies from 'js-cookie'
 
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs' // 中文语言
+import 'default-passive-events'
 
 import '@/assets/styles/index.scss' // global css
 
