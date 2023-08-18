@@ -44,7 +44,7 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:showSearch', 'queryTable'])
+const emits = defineEmits(['update:showSearch', 'queryTable', 'handleVisible'])
 
 // 显隐数据
 const value = ref([])
@@ -75,7 +75,9 @@ function refresh() {
 function dataChange(data) {
   for (let item in props.columns) {
     const key = props.columns[item].key
-    props.columns[item].visible = !data.includes(key)
+    // 不要在子组件修改props
+    // props.columns[item].visible = !data.includes(key)
+    emits('handleVisible', !data.includes(key))
   }
 }
 
