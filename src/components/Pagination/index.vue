@@ -15,6 +15,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { scrollTo } from '@/utils/scroll-to'
 
 const props = defineProps({
@@ -59,7 +60,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits()
+const emit = defineEmits(['update:page', 'update:limit'])
 const currentPage = computed({
   get() {
     return props.page

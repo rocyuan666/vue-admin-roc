@@ -23,6 +23,8 @@
 </template>
 
 <script setup>
+import { ref, computed, watch, watchEffect, nextTick, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import Fuse from 'fuse.js'
 import { getNormalPath } from '@/utils/roc'
 import { isHttp } from '@/utils/validate'

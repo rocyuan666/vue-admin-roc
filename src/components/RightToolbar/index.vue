@@ -24,6 +24,8 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
+
 const props = defineProps({
   showSearch: {
     type: Boolean,

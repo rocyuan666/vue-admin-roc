@@ -21,13 +21,15 @@
       </template>
     </template>
     <template v-if="unmatch && showValue">
-      {{ unmatchArray | handleArray }}
+      {{ handleArray(unmatchArray) }}
     </template>
   </div>
 </template>
 
 <script setup>
-// // 记录未匹配的项
+import { ref, computed } from 'vue'
+
+// 记录未匹配的项
 const unmatchArray = ref([])
 
 const props = defineProps({
@@ -73,8 +75,8 @@ const unmatch = computed(() => {
 })
 
 function handleArray(array) {
-  if (array.length === 0) return ''
-  return array.reduce((pre, cur) => {
+  if (array.value.length === 0) return ''
+  return array.value.reduce((pre, cur) => {
     return pre + ' ' + cur
   })
 }

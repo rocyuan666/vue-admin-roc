@@ -1,3 +1,5 @@
+import { defineStore } from 'pinia'
+
 const useDictStore = defineStore('dict', {
   state: () => ({
     dict: new Array(),

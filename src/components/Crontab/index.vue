@@ -102,6 +102,7 @@
 </template>
 
 <script setup>
+import { ref, computed, watch, onMounted } from 'vue'
 import CrontabSecond from './second.vue'
 import CrontabMin from './min.vue'
 import CrontabHour from './hour.vue'
@@ -110,7 +111,7 @@ import CrontabMonth from './month.vue'
 import CrontabWeek from './week.vue'
 import CrontabYear from './year.vue'
 import CrontabResult from './result.vue'
-const { proxy } = getCurrentInstance()
+
 const emit = defineEmits(['hide', 'fill'])
 const props = defineProps({
   hideComponent: {
@@ -124,8 +125,8 @@ const props = defineProps({
 })
 const tabTitles = ref(['秒', '分钟', '小时', '日', '月', '周', '年'])
 const tabActive = ref(0)
-const hideComponent = ref([])
-const expression = ref('')
+const hideComponentV = ref([])
+const expressionV = ref('')
 const crontabValueObj = ref({
   second: '*',
   min: '*',
@@ -152,14 +153,14 @@ const crontabValueString = computed(() => {
     (obj.year === '' ? '' : ' ' + obj.year)
   )
 })
-watch(expression, () => resolveExp())
+watch(expressionV, () => resolveExp())
 function shouldHide(key) {
-  return !(hideComponent.value && hideComponent.value.includes(key))
+  return !(hideComponentV.value && hideComponentV.value.includes(key))
 }
 function resolveExp() {
   // 反解析 表达式
-  if (expression.value) {
-    const arr = expression.value.split(/\s+/)
+  if (expressionV.value) {
+    const arr = expressionV.value.split(/\s+/)
     if (arr.length >= 6) {
       //6 位以上是合法表达式
       let obj = {
@@ -221,8 +222,8 @@ function clearCron() {
   }
 }
 onMounted(() => {
-  expression.value = props.expression
-  hideComponent.value = props.hideComponent
+  expressionV.value = props.expression
+  hideComponentV.value = props.hideComponent
 })
 </script>
 

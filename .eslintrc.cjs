@@ -11,8 +11,8 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': 'off',
     'no-unused-vars': 'off',
-    'no-undef': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-side-effects-in-computed-properties': 'off',
     'prettier/prettier': [
       'error',
       {

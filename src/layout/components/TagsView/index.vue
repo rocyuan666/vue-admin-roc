@@ -32,6 +32,8 @@
 </template>
 
 <script setup>
+import { ref, watch, computed, nextTick, getCurrentInstance, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import ScrollPane from './ScrollPane'
 import { getNormalPath } from '@/utils/roc'
 import useTagsViewStore from '@/store/modules/tagsView'

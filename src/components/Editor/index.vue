@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+import { ref, computed, watch } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
@@ -57,7 +58,6 @@ const options = ref({
   },
   placeholder: '请输入内容',
   readOnly: props.readOnly,
-  theme: 'snow',
 })
 
 const styles = computed(() => {

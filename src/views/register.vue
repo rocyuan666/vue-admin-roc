@@ -64,6 +64,8 @@
 </template>
 
 <script setup>
+import { ref, getCurrentInstance } from 'vue'
+import { useRouter } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
 import { getCodeImg, register } from '@/api/login'
 
@@ -124,7 +126,7 @@ function handleRegister() {
         })
         .catch(() => {
           loading.value = false
-          if (captchaEnabled) {
+          if (captchaEnabled.value) {
             getCode()
           }
         })

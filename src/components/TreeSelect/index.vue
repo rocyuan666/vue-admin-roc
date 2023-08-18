@@ -29,6 +29,8 @@
 </template>
 
 <script setup>
+import { ref, computed, watch, nextTick, onMounted, getCurrentInstance } from 'vue'
+
 const { proxy } = getCurrentInstance()
 
 const props = defineProps({

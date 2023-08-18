@@ -38,6 +38,7 @@
 </template>
 
 <script setup>
+import { ref, computed, watch, getCurrentInstance } from 'vue'
 import { getToken } from '@/utils/auth'
 
 const props = defineProps({
@@ -65,7 +66,7 @@ const props = defineProps({
 })
 
 const { proxy } = getCurrentInstance()
-const emit = defineEmits()
+const emit = defineEmits(['update:modelValue'])
 const number = ref(0)
 const uploadList = ref([])
 const dialogImageUrl = ref('')

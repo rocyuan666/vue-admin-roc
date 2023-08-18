@@ -53,6 +53,8 @@
 </template>
 
 <script setup>
+import { ref, watch, getCurrentInstance } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { getCodeImg } from '@/api/login'
 import Cookies from 'js-cookie'
 import { encrypt, decrypt } from '@/utils/jsencrypt'

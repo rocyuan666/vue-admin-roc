@@ -14,6 +14,7 @@
 </template>
 
 <script setup>
+import { ref, computed, watchEffect } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import Sidebar from './components/Sidebar/index.vue'
 import { AppMain, Navbar, Settings, TagsView } from './components'

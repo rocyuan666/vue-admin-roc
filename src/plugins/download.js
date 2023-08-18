@@ -43,10 +43,10 @@ export default {
     })
   },
   zip(url, name) {
-    var url = baseURL + url
+    var newUrl = baseURL + url
     axios({
       method: 'get',
-      url: url,
+      url: newUrl,
       responseType: 'blob',
       headers: { Authorization: 'Bearer ' + getToken() },
     }).then((res) => {

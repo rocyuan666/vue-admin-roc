@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import { nextTick, onMounted } from 'vue'
 import useSettingsStore from '@/store/modules/settings'
 import { handleThemeStyle } from '@/utils/theme'
 
