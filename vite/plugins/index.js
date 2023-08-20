@@ -10,8 +10,8 @@ import createMockServer from './mockServer'
 
 export default function createVitePlugins(viteEnv, isBuild = false) {
   const vitePlugins = [vue()]
-  vitePlugins.push(createAutoImport())
-  vitePlugins.push(createComponents())
+  isBuild && vitePlugins.push(createAutoImport())
+  isBuild && vitePlugins.push(createComponents())
   vitePlugins.push(createSetupExtend())
   vitePlugins.push(createVueJsx())
   !isBuild && vitePlugins.push(createMockServer())
