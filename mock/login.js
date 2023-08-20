@@ -49,3 +49,15 @@ export const logout = {
     }
   },
 }
+
+// 退出方法
+export const register = {
+  url: '/mock/api/register',
+  method: 'post',
+  response: () => {
+    return {
+      code: 200,
+      msg: 'ok',
+    }
+  },
+}
