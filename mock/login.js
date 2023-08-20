@@ -1,15 +1,4 @@
-export const login = {
-  url: '/mock/api/login',
-  method: 'post',
-  response: () => {
-    return {
-      code: 200,
-      msg: 'ok',
-      token: 'token:xxxxxxxxxxxxxxxxxxxxxxxxx',
-    }
-  },
-}
-
+// 获取验证码
 export const captchaImage = {
   url: '/mock/api/captchaImage',
   method: 'get',
@@ -24,6 +13,20 @@ export const captchaImage = {
   },
 }
 
+// 登录
+export const login = {
+  url: '/mock/api/login',
+  method: 'post',
+  response: () => {
+    return {
+      code: 200,
+      msg: 'ok',
+      token: 'token:xxxxxxxxxxxxxxxxxxxxxxxxx',
+    }
+  },
+}
+
+// 获取用户详细信息
 export const getInfo = {
   url: '/mock/api/getInfo',
   method: 'get',
@@ -50,7 +53,7 @@ export const logout = {
   },
 }
 
-// 退出方法
+// 注册方法
 export const register = {
   url: '/mock/api/register',
   method: 'post',

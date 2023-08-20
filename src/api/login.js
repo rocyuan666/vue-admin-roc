@@ -1,5 +1,17 @@
 import request from '@/utils/request'
 
+// 获取验证码
+export function getCodeImg() {
+  return request({
+    url: '/mock/api/captchaImage',
+    headers: {
+      isToken: false,
+    },
+    method: 'get',
+    timeout: 20000,
+  })
+}
+
 // 登录方法
 export function login(username, password, code, uuid) {
   const data = {
@@ -10,18 +22,6 @@ export function login(username, password, code, uuid) {
   }
   return request({
     url: '/mock/api/login',
-    headers: {
-      isToken: false,
-    },
-    method: 'post',
-    data: data,
-  })
-}
-
-// 注册方法
-export function register(data) {
-  return request({
-    url: '/mock/api/register',
     headers: {
       isToken: false,
     },
@@ -46,14 +46,14 @@ export function logout() {
   })
 }
 
-// 获取验证码
-export function getCodeImg() {
+// 注册方法
+export function register(data) {
   return request({
-    url: '/mock/api/captchaImage',
+    url: '/mock/api/register',
     headers: {
       isToken: false,
     },
-    method: 'get',
-    timeout: 20000,
+    method: 'post',
+    data: data,
   })
 }

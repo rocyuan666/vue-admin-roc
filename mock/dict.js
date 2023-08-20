@@ -1,5 +1,5 @@
-export const getRouters = {
-  url: '/mock/api/getRouters',
+export const getDicts = {
+  url: '/mock/api/dict/data/type/',
   method: 'get',
   response: () => {
     return {
